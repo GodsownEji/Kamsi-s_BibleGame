@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kamsi's Bible Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Restart Button -->
+    <button class="restart-button" id="restart-button" onclick="restartGame()" style="display: none;">🔄 Restart</button>
+
+    <!-- Language Selection Dropdown -->
+    <div class="language-selector">
+        <select id="language-select" onchange="changeLanguage(this.value)">
+            <option value="en">🇬🇧 English</option>
+            <option value="fr">🇫🇷 French (Français)</option>
+            <option value="es">🇪🇸 Spanish (Español)</option>
+            <option value="ha">🇳🇬 Hausa</option>
+            <option value="ig">🇳🇬 Igbo</option>
+            <option value="yo">🇳🇬 Yoruba</option>
+            <option value="tw">🇬🇭 Twi (Ghana)</option>
+            <option value="ak">🇬🇭 Akan (Ghana)</option>
+            <option value="ga">🇬🇭 Ga (Ghana)</option>
+            <option value="sw">🇰🇪 Swahili (Kenya/Tanzania)</option>
+            <option value="ki">🇰🇪 Kikuyu (Kenya)</option>
+            <option value="luo">🇰🇪 Luo (Kenya)</option>
+            <option value="ar">🇪🇬 Arabic (Egypt)</option>
+            <option value="am">🇪🇹 Amharic (Ethiopia)</option>
+            <option value="zu">🇿🇦 Zulu (South Africa)</option>
+            <option value="xh">🇿🇦 Xhosa (South Africa)</option>
+            <option value="af">🇿🇦 Afrikaans (South Africa)</option>
+            <option value="sn">🇿🇼 Shona (Zimbabwe)</option>
+            <option value="ny">🇲🇼 Chichewa (Malawi)</option>
+            <option value="rw">🇷🇼 Kinyarwanda (Rwanda)</option>
+            <option value="wo">🇸🇳 Wolof (Senegal)</option>
+        </select>
+    </div>
+
+    <h1 id="game-title">Kamsi's Bible Game</h1>
+
+    <!-- Score and Progress -->
+    <div class="score-container" style="display: none;" id="score-container">
+        <div id="time-label">Time: <span id="game-time">0:00</span></div>
+        <div id="progress-label">Progress: <span id="current-book">0</span>/<span id="total-books">66</span></div>
+        <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
+        </div>
+        <div id="score-label">Score: <span id="score">0</span></div>
+    </div>
+
+    <button class="start-button" id="start-button" onclick="startGame()">Start Game</button>
+
+    <!-- Game Container with List Column -->
+    <div class="game-area">
+        <!-- List of Correctly Selected Books -->
+        <div id="selected-books">
+            <h3 id="selected-books-title">Selected Books:</h3>
+            <ul id="book-list"></ul>
+        </div>
+
+        <!-- Game Container -->
+        <div class="circle-container" id="game-container" style="display:none;">
+            <!-- Circles will be dynamically added here -->
+        </div>
+    </div>
+
+    <div id="message"></div>
+
+    <!-- Game Over Notification -->
+    <div id="game-over" style="display: none;">
+        <h2 id="congratulations-text">🎉 Congratulations! 🎉</h2>
+        <p id="heaven-text">Welcome to Heaven!</p>
+        <p id="final-score-text">Final Score: <span id="final-score">0</span></p>
+        <p id="final-time-text">Time Completed: <span id="final-time">0:00</span></p>
+        <button id="play-again-button" onclick="retryGame()">Play Again</button>
+    </div>
+
+    <!-- Background Audio -->
+    <audio id="background-music" src="the-wrong-chords-60768.mp3" autoplay loop preload="auto"></audio>
+
+    <!-- Audio Files for Sound Effects -->
+    <audio id="correct-sound" src="sound-effect-twinklesparkle-115095.mp3" preload="auto"></audio>
+    <audio id="wrong-sound" src="wrong-buzzer-6268.mp3" preload="auto"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
